@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: #f0f2f5;
+}
+
+.dark body {
+  background: #111827;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 暗色模式滚动条 */
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* 禁止拖拽区域的文字选中 */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 动画 */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.2s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* 复选框样式 */
+.task-checkbox {
+  @apply w-5 h-5 rounded-full border-2 flex items-center justify-center cursor-pointer transition-all duration-200;
+}
+
+.task-checkbox:hover {
+  @apply shadow-sm;
+}
+
+.task-checkbox.unchecked {
+  @apply border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-400;
+}
+
+.task-checkbox.checked {
+  @apply bg-primary-500 border-primary-500;
+}
+
+.task-checkbox.important {
+  @apply border-red-400;
+}
+
+.task-checkbox.important:hover {
+  @apply border-red-500;
+}
+
+/* 大号复选框（详情面板标题） */
+.task-checkbox-lg {
+  @apply w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer transition-all duration-200;
+}
+
+.task-checkbox-lg:hover {
+  @apply shadow-sm;
+}
+
+.task-checkbox-lg.unchecked {
+  @apply border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-400;
+}
+
+.task-checkbox-lg.checked {
+  @apply bg-primary-500 border-primary-500;
+}
+
+.task-checkbox-lg.important {
+  @apply border-red-400;
+}
+
+.task-checkbox-lg.important:hover {
+  @apply border-red-500;
+}
+
+/* 拖拽标题栏 */
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* 暗色模式下的 select/option 背景 */
+.dark select option {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+/* 暗色模式下的 input[date] 图标颜色 */
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+}
